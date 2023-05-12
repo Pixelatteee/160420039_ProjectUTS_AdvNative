@@ -1,0 +1,67 @@
+<?xml version="1.0" encoding="utf-8"?>
+<navigation xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:id="@+id/main_navigation"
+    app:startDestination="@id/itemList">
+
+    <fragment
+        android:id="@+id/itemList"
+        android:name="com.example.a160420039_midtermproject.view.RestaurantListFragment"
+        android:label="Restaurant List"
+        tools:layout="@layout/fragment_restaurant_list">
+        <action
+            android:id="@+id/actionRestaurantDetail"
+            app:destination="@id/restaurantDetailFragment" />
+        <action
+            android:id="@+id/actionLoginFragment"
+            app:destination="@id/loginFragment" />
+    </fragment>
+    <fragment
+        android:id="@+id/restaurantDetailFragment"
+        android:name="com.example.a160420039_midtermproject.view.RestaurantDetailFragment"
+        android:label="Restaurant Detail"
+        tools:layout="@layout/fragment_restaurant_detail">
+        <action
+            android:id="@+id/action_restaurantDetailFragment_to_restaurantListFragment"
+            app:destination="@id/itemList"
+            app:popUpTo="@id/itemList" />
+        <argument
+            android:name="restaurant_id"
+            app:argType="string" />
+    </fragment>
+    <fragment
+        android:id="@+id/itemBestRating"
+        android:name="com.example.a160420039_midtermproject.view.BestRatingFragment"
+        android:label="Best Rating Restaurant"
+        tools:layout="@layout/fragment_best_rating" />
+    <fragment
+        android:id="@+id/itemProfile"
+        android:name="com.example.a160420039_midtermproject.view.ProfileFragment"
+        android:label="Profile"
+        tools:layout="@layout/fragment_profile" >
+        <argument
+            android:name="username"
+            app:argType="string" />
+        <argument
+            android:name="password"
+            app:argType="string" />
+    </fragment>
+    <fragment
+        android:id="@+id/loginFragment"
+        android:name="com.example.a160420039_midtermproject.view.LoginFragment"
+        android:label="fragment_login"
+        tools:layout="@layout/fragment_login" >
+        <action
+            android:id="@+id/actionRestaurantList"
+            app:destination="@id/itemList" />
+        <action
+            android:id="@+id/actionProfileFragments"
+            app:destination="@id/itemProfile" />
+    </fragment>
+    <fragment
+        android:id="@+id/restaurantReviewFragment"
+        android:name="com.example.a160420039_midtermproject.view.RestaurantReviewFragment"
+        android:label="fragment_restaurant_review"
+        tools:layout="@layout/fragment_restaurant_review" />
+</navigation>
